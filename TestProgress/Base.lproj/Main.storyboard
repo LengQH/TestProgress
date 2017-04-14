@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,8 +16,54 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="wAC-Iy-8gc">
+                                <rect key="frame" x="178" y="435" width="244" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="aTZ-RA-IJE"/>
+                                    <constraint firstAttribute="height" constant="30" id="jUV-D6-Zgs"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="SRH-bc-5Yk"/>
+                                </connections>
+                            </slider>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzk-f2-Awm" customClass="TCircleView">
+                                <rect key="frame" x="150" y="100" width="300" height="300"/>
+                                <color key="backgroundColor" red="1" green="0.79299716946655607" blue="0.87897845346789105" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="3dl-Wi-0Oo"/>
+                                    <constraint firstAttribute="width" constant="300" id="BZF-FA-YC3"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWO-44-EsJ">
+                                <rect key="frame" x="250" y="52" width="100" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="2YW-xZ-Zqd"/>
+                                    <constraint firstAttribute="width" constant="100" id="3C7-gI-eO1"/>
+                                </constraints>
+                                <state key="normal" title="Init创建">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="createAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ny2-Mk-yFh"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gzk-f2-Awm" firstAttribute="top" secondItem="DWO-44-EsJ" secondAttribute="bottom" constant="18" id="IVW-tt-AkJ"/>
+                            <constraint firstItem="wAC-Iy-8gc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="d8T-5Y-8Qa"/>
+                            <constraint firstItem="gzk-f2-Awm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="80" id="djQ-tU-ERZ"/>
+                            <constraint firstItem="wAC-Iy-8gc" firstAttribute="top" secondItem="gzk-f2-Awm" secondAttribute="bottom" constant="35" id="idv-2U-BG1"/>
+                            <constraint firstItem="gzk-f2-Awm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j4J-5j-PVi"/>
+                            <constraint firstItem="DWO-44-EsJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="o5v-Xo-fX0"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="circleView" destination="gzk-f2-Awm" id="3sp-vs-d3H"/>
+                        <outlet property="myProgress" destination="wAC-Iy-8gc" id="hA5-tt-Qyf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
